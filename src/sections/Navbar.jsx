@@ -4,6 +4,7 @@ function Navbar() {
 
     const navRef = useRef(null);
     const linksRef = useRef([]);
+    const contactRef = useRef(null);
   return (
     <nav 
     ref={navRef} 
@@ -19,6 +20,24 @@ function Navbar() {
                 </div>
             )
             )}
+        </div>
+
+        <div 
+        ref={contactRef}
+        className='flex flex-col flex-wrap justify-between gap-8 md:flex-row'>
+            <div className='font-light'>
+                <p 
+                className='tracking-wider text-white/50'
+                >
+                    Email
+                </p>
+                
+                <p
+                className='text-xl tracking-widest lowercase text-pretty'       
+                >
+                    IamSammadIjaz@gmail.com
+                </p>
+            </div>
         </div>
 
     </nav>
