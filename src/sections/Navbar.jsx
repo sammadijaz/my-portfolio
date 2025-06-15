@@ -38,6 +38,14 @@ function Navbar() {
                     IamSammadIjaz@gmail.com
                 </p>
             </div>
+            <div className='font-light'>
+                <p
+                className='tracking-wider text-white/50' 
+                >
+                    Social Media
+                </p>
+                <div className='flex flex-col flex-wrap md:flex-row gap-x-2'></div>
+            </div>
         </div>
 
     </nav>
