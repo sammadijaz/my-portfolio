@@ -1,8 +1,9 @@
-import React, { useRef } from 'react';
+import React, { use, useRef } from 'react';
 
 function Navbar() {
 
-    const navRef = useRef(null)
+    const navRef = useRef(null);
+    const linksRef = useRef([]);
   return (
     <nav 
     ref={navRef} 
@@ -11,8 +12,10 @@ function Navbar() {
         <div className='flex flex-col text-5xl gap-y-2 md:text-6xl lg:text-8xl'
         >
             {["home","services", "about", "work", "contact"].map((section, index) => (
-                <div>
-                    <a href="">{section}</a>
+                <div key={index} ref={(el) => (linksRef.current[index] = el)}>
+                    <a className='transition-all duration-300 cursor-pointer hover:text-white'>
+                        {section}
+                    </a>
                 </div>
             )
             )}
