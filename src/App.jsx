@@ -3,7 +3,7 @@ import Navbar from './sections/Navbar'
 
 const App = () => {
   return (
-    <div>
+    <div className='relative w-screen min-h-screen overflow-x-auto'>
       <Navbar />
     </div>
   )
