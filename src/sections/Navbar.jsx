@@ -1,4 +1,5 @@
 import React, { use, useRef } from 'react';
+import { socials } from '../constants';
 
 function Navbar() {
 
@@ -44,7 +45,19 @@ function Navbar() {
                 >
                     Social Media
                 </p>
-                <div className='flex flex-col flex-wrap md:flex-row gap-x-2'></div>
+                <div className='flex flex-col flex-wrap md:flex-row gap-x-2'>
+                    {socials.map((social, index)=>(
+                        <a
+                        key={index}
+                        href={social.href}
+                        className='text-sm leading-loose tracking-widest uppercase hover:text-white tracking-colors duration-300'
+                        >
+                            {"{ "}
+                            {social.name}
+                            {" }"}
+                        </a>
+                    ))}
+                </div>
             </div>
         </div>
 

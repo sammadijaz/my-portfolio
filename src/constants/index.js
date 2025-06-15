@@ -171,11 +171,11 @@ export const projects = [
   },
 ];
 export const socials = [
-  { name: "Instagram", href: "https://www.instagram.com/ali.sanatidev/reels/" },
-  {
-    name: "Youtube",
-    href: "https://www.youtube.com/channel/UCZhtUWTtk3bGJiMPN9T4HWA",
-  },
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/ali-sanati/" },
-  { name: "GitHub", href: "https://github.com/Ali-Sanati" },
+  // { name: "Instagram", href: "https://www.instagram.com/iamsammadijaz" },
+  // {
+  //   name: "Youtube",
+  //   href: "https://www.youtube.com/channel/",
+  // },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/sammadijaz/" },
+  { name: "GitHub", href: "https://github.com/sammadijaz" },
 ];
