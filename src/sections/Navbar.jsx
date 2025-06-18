@@ -1,5 +1,7 @@
 import React, { use, useRef } from 'react';
 import { socials } from '../constants';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 function Navbar() {
 
@@ -8,6 +10,14 @@ function Navbar() {
     const contactRef = useRef(null);
     const topLineRef = useRef(null);
     const bottomLineRef = useRef(null);
+
+    useGSAP(() => {
+        gsap.set(navRef.current, { xPercent: 100 });
+        gsap.set([linksRef.current, contactRef.current], {
+            autoAlpha: 0,
+            x: -20,
+        })
+    });
   return (
     <>
         <nav 
