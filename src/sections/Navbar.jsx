@@ -1,4 +1,4 @@
-import React, { use, useRef } from 'react';
+import React, { use, useRef, useState } from 'react';
 import { socials } from '../constants';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
@@ -10,6 +10,8 @@ function Navbar() {
     const contactRef = useRef(null);
     const topLineRef = useRef(null);
     const bottomLineRef = useRef(null);
+    const tl = useRef(null)
+    const [isOpen, setIsOpen] = useState(false);
 
     useGSAP(() => {
         gsap.set(navRef.current, { xPercent: 100 });
@@ -17,7 +19,38 @@ function Navbar() {
             autoAlpha: 0,
             x: -20,
         })
+
+        tl.current = gsap.timeline({ paused:true }).to(navRef.current, {
+            xPercent: 0,
+            duration: 1,
+            ease: "power3.out"
+        }).to(linksRef.current, {
+            autoAlpha: 1,
+            x: 0,
+            stagger: 0.1,
+            duration: 0.5,
+            ease: "power2.out"
+        },
+        "<"
+    
+        ).to(contactRef.current, {
+            autoAlpha: 1,
+            x: 0,
+            duration: 0,
+            ease: "power2.out",
+        },
+        "<+0.2"
+        );
     });
+
+    const toggleMenu = () => {
+        if (isOpen) {
+            tl.current.reverse();
+        } else {
+            tl.current.play();
+        }
+        setIsOpen(!isOpen);    
+    };
   return (
     <>
         <nav 
@@ -74,7 +107,7 @@ function Navbar() {
                 </div>
             </div>
         </nav>
-        <div className='fixed z-50 flex flex-col items-center justify-center gap-1 transition-all duration-300 bg-black rounded-full cursor-pointer w-14 h-14 md:w-20 md:h-20 top-4 right-10'>
+        <div className='fixed z-50 flex flex-col items-center justify-center gap-1 transition-all duration-300 bg-black rounded-full cursor-pointer w-14 h-14 md:w-20 md:h-20 top-4 right-10' onClick={toggleMenu}>
             <span ref={topLineRef} className='block w-8 h-0.5 bg-white rounded-full origin-center'></span>
             <span ref={bottomLineRef} className='block w-8 h-0.5 bg-white rounded-full origin-center'></span>
         </div>
