@@ -12,6 +12,7 @@ function Navbar() {
     const bottomLineRef = useRef(null);
     const tl = useRef(null)
     const [isOpen, setIsOpen] = useState(false);
+    const iconTl =  useRef(null);
 
     useGSAP(() => {
         gsap.set(navRef.current, { xPercent: 100 });
@@ -41,13 +42,27 @@ function Navbar() {
         },
         "<+0.2"
         );
-    });
+
+        iconTl.current = gsap.timeline({ paused: true }).to(topLineRef.current, {
+            rotate: 45,
+            y: 3.5,
+            duration: 0.3,
+            ease: "power2.inOut"
+        }).to(bottomLineRef.current, {
+            rotate: -45,
+            y: -3.3,
+            duration: 0.3,
+            ease: "power2.inOut",
+        }, "<" );
+    }, []);
 
     const toggleMenu = () => {
         if (isOpen) {
             tl.current.reverse();
+            iconTl.current.reverse();
         } else {
             tl.current.play();
+            iconTl.current.play();
         }
         setIsOpen(!isOpen);    
     };
