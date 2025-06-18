@@ -1,4 +1,4 @@
-import React, { use, useRef, useState } from 'react';
+import React, { use, useEffect, useRef, useState } from 'react';
 import { socials } from '../constants';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
@@ -13,6 +13,7 @@ function Navbar() {
     const tl = useRef(null)
     const [isOpen, setIsOpen] = useState(false);
     const iconTl =  useRef(null);
+    const [showBurger, setShowBurger] = useState(true);
 
     useGSAP(() => {
         gsap.set(navRef.current, { xPercent: 100 });
@@ -54,6 +55,21 @@ function Navbar() {
             duration: 0.3,
             ease: "power2.inOut",
         }, "<" );
+    }, []);
+
+    useEffect(() => {
+        let lastScrollY = window.scrollY;
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            setShowBurger(currentScrollY <= lastScrollY || currentScrollY < 10);
+
+            lastScrollY = currentScrollY;
+        };
+        window.addEventListener("scroll", handleScroll, {
+            passive: true,
+        });
+        return () => window.removeEventListener("scroll", handleScroll)
     }, []);
 
     const toggleMenu = () => {
@@ -122,7 +138,15 @@ function Navbar() {
                 </div>
             </div>
         </nav>
-        <div className='fixed z-50 flex flex-col items-center justify-center gap-1 transition-all duration-300 bg-black rounded-full cursor-pointer w-14 h-14 md:w-20 md:h-20 top-4 right-10' onClick={toggleMenu}>
+        <div 
+        className='fixed z-50 flex flex-col items-center justify-center gap-1 transition-all duration-300 bg-black rounded-full cursor-pointer w-14 h-14 md:w-20 md:h-20 top-4 right-10' 
+        onClick={toggleMenu}
+        style={
+            showBurger 
+            ? { clipPath : "circle(50.0% at 50% 50%)" } 
+            : { clipPath : "circle(0% at 50% 50%)" }
+        }
+        >
             <span ref={topLineRef} className='block w-8 h-0.5 bg-white rounded-full origin-center'></span>
             <span ref={bottomLineRef} className='block w-8 h-0.5 bg-white rounded-full origin-center'></span>
         </div>
