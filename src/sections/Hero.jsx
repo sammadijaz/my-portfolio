@@ -16,11 +16,16 @@ function Hero() {
               404 No Bugs Found
             </p>
             <div className="px-10">
-              <h1 className="flex flex-col flex-wrap gap-12 text-black uppercase text-4xl sm:text-7xl md:text-8xl lg:text-9xl sm:gap-16 md:block font">
+              <h1 className="flex flex-col flex-wrap gap-12 text-black uppercase text-5xl sm:text-7xl md:text-8xl lg:text-9xl sm:gap-16 md:block whitespace-nowrap">
                 Sammad Ijaz
               </h1>
             </div>
           </div>
+        </div>
+        <div className="relative px-10 text-black">
+          <div className="absolute inset-x-0 border-t-2" />
+          <div></div>
+
         </div>
         
       </div>
