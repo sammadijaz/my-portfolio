@@ -1,9 +1,13 @@
 import { useRef } from "react";
+import AnimatedTextLines from "../components/AnimatedTextLines";
 
 function Hero() {
 
   const contextRef = useRef(null);
   const headerRef = useRef(null);
+  const aboutText = `I help growing brands and startups gain 
+  an unfair advantage through premium 
+  results drives webs/apps`
   return (
     <section id="home" className="flex flex-col justify-end min-h-screen">
       <div ref={contextRef} >
@@ -24,7 +28,10 @@ function Hero() {
         </div>
         <div className="relative px-10 text-black">
           <div className="absolute inset-x-0 border-t-2" />
-          <div></div>
+          <div className="py-12 sm:py-16 text-end">
+            <AnimatedTextLines text={aboutText} className="font-light uppercase value-text-responsive" />
+  
+          </div>
 
         </div>
         
