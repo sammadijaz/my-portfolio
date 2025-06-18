@@ -15,8 +15,8 @@ function Hero() {
             <p className="text-sm font-light tracking-[0.5rem] uppercase px-10 text-black">
               404 No Bugs Found
             </p>
-            <div className="px-10">
-              <h1 className="flex flex-col flex-wrap gap-12 text-black uppercase text-5xl sm:text-7xl md:text-8xl lg:text-9xl sm:gap-16 md:block  ">
+            <div className="px-7">
+              <h1 className="flex flex-col flex-wrap gap-12 text-black uppercase text-5xl sm:text-7xl md:text-8xl lg:text-9xl sm:gap-16 md:block">
                 Sammad Ijaz
               </h1>
             </div>
