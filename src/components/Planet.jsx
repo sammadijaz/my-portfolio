@@ -19,8 +19,26 @@ export function Planet(props) {
       y: 5,
       duration: 3,
       ease: "circ.out",
-    })
-  })
+    });
+    tl.from(shapeContainer.current.rotation, {
+      x: 0,
+      y: Math.PI,
+      z: -Math.PI,
+      duration: 10,
+      ease: "power1.inOut"
+    },
+    "-=25%"
+  );
+  tl.from(ringContainer.current.rotation, {
+    x: 0.8,
+    y: 0,
+    z: 0,
+    duration: 10,
+    ease: "power1.inOut"
+  },
+  "<"
+);
+  }, [])
 
   return (
     <group ref={shapeContainer} {...props} dispose={null}>
@@ -31,6 +49,7 @@ export function Planet(props) {
           geometry={nodes.Sphere.geometry}
           material={materials['Material.002']}
           rotation={[0, 0, 0.741]}
+          scale={0.96}
         />
         <mesh
           castShadow
@@ -39,7 +58,7 @@ export function Planet(props) {
           material={materials['Material.001']}
           position={[0.647, 1.03, -0.724]}
           rotation={[0, 0, 0.741]}
-          scale={0.223}
+          scale={0.18}
         />
       </group>
       <mesh
@@ -49,7 +68,7 @@ export function Planet(props) {
         geometry={nodes.Ring.geometry}
         material={materials['Material.001']}
         rotation={[-0.124, 0.123, -0.778]}
-        scale={2}
+        scale={1.55}
       />
     </group>
   )
