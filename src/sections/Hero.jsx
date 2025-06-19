@@ -5,9 +5,11 @@ import gsap from "gsap";
 import { Canvas } from "@react-three/fiber";
 import { Planet } from "../components/Planet";
 import { Environment, Float, Lightformer } from "@react-three/drei";
+import { useMediaQuery } from "react-responsive";
 
 
 function Hero() {
+  const isMobile = useMediaQuery({ maxWidth:853 });
 
   const contextRef = useRef(null);
   const headerRef = useRef(null);
@@ -71,7 +73,7 @@ function Hero() {
         >
           <ambientLight intensity={0.5} />
           <Float speed={0.5}>
-            <Planet />
+            <Planet scale={ isMobile ? 0.5: 1} />
           </Float>
           <Environment resolution={256}>
             <group rotation={[-Math.PI / 3, 4, 1]}>
