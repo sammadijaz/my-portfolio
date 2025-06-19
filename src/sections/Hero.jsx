@@ -2,6 +2,9 @@ import { useRef } from "react";
 import AnimatedTextLines from "../components/AnimatedTextLines";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { Canvas } from "@react-three/fiber";
+import { Planet } from "../components/Planet";
+
 
 function Hero() {
 
@@ -61,7 +64,12 @@ function Hero() {
       className="absolute inset-0 z-50"
       style={{ width: "100vw", height:"100vh" }}
       >
-
+        <Canvas 
+        shadows
+        camera={{ position: [0, 0, -10], fov: 17.5, near: 1, far: 20 }}
+        >
+          <Planet />
+        </Canvas>
       </figure>
     </section>
   );
