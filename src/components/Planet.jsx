@@ -6,9 +6,10 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export function Planet(props) {
+  const shapeContainer = useRef(null);
   const { nodes, materials } = useGLTF("/my-portfolio/models/Planet.glb")
   return (
-    <group {...props} dispose={null}>
+    <group ref={shapeContainer} {...props} dispose={null}>
       <mesh
         castShadow
         receiveShadow
