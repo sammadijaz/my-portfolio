@@ -1,5 +1,7 @@
 import { useRef } from "react";
 import AnimatedTextLines from "../components/AnimatedTextLines";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 function Hero() {
 
@@ -8,6 +10,15 @@ function Hero() {
   const aboutText = `I help growing brands and startups gain 
   an unfair advantage through premium 
   results drives webs/apps`
+
+  useGSAP(() => {
+    const tl = gsap.timeline();
+    tl.from(contextRef.current, {
+      y: "50vh",
+      duration: 1,
+      ease: "circ.out",
+    })
+  })
   return (
     <section id="home" className="flex flex-col justify-end min-h-screen">
       <div ref={contextRef} >
