@@ -57,6 +57,12 @@ function Hero() {
         </div>
         
       </div>
+      <figure
+      className="absolute inset-0 z-50"
+      style={{ width: "100vw", height:"100vh" }}
+      >
+
+      </figure>
     </section>
   );
 }
