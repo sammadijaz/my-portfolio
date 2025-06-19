@@ -6,7 +6,7 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export function Planet(props) {
-  const { nodes, materials } = useGLTF("models/Planet.glb")
+  const { nodes, materials } = useGLTF("/my-portfolio/models/Planet.glb")
   return (
     <group {...props} dispose={null}>
       <mesh
