@@ -20,7 +20,7 @@ function Hero() {
               404 No Bugs Found
             </p>
             <div className="px-7">
-              <h1 className="flex flex-col flex-wrap gap-12 text-black uppercase text-5xl sm:text-7xl md:text-8xl lg:text-9xl sm:gap-16 md:block">
+              <h1 className="flex flex-col flex-wrap gap-12 text-black uppercase text-[45px] banner-text-responsive sm:text-7xl md:text-8xl lg:text-9xl sm:gap-16 md:block">
                 Sammad Ijaz
               </h1>
             </div>
