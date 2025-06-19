@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Canvas } from "@react-three/fiber";
 import { Planet } from "../components/Planet";
-import { Environment, Lightformer } from "@react-three/drei";
+import { Environment, Float, Lightformer } from "@react-three/drei";
 
 
 function Hero() {
@@ -70,7 +70,9 @@ function Hero() {
         camera={{ position: [0, 0, -10], fov: 17.5, near: 1, far: 20 }}
         >
           <ambientLight intensity={0.5} />
-          <Planet />
+          <Float speed={0.5}>
+            <Planet />
+          </Float>
           <Environment resolution={256}>
             <group rotation={[-Math.PI / 3, 4, 1]}>
               <Lightformer
