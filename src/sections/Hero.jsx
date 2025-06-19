@@ -17,12 +17,22 @@ function Hero() {
       y: "50vh",
       duration: 1,
       ease: "circ.out",
-    })
-  })
+    });
+    tl.from(headerRef.current, {
+      opacity: 0,
+      y: "200",
+      duration: 1,
+      ease: "circ.out",
+    },
+    "<+0.2"
+  )
+  }, [])
   return (
     <section id="home" className="flex flex-col justify-end min-h-screen">
       <div ref={contextRef} >
-        <div style={{ clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)" }}>
+        <div 
+        style={{ clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)" }}
+        >
           <div 
           ref={headerRef} 
           className="flex flex-col justify-center gap-12 pt-16 sm:gap-16"
