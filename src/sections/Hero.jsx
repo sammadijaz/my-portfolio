@@ -1,7 +1,3 @@
-import { useRef } from "react";
-import AnimatedTextLines from "../components/AnimatedTextLines";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 import { Canvas } from "@react-three/fiber";
 import { Planet } from "../components/Planet";
 import { Environment, Float, Lightformer } from "@react-three/drei";
@@ -12,28 +8,6 @@ import AnimatedHeader from "../components/AnimatedHeader";
 function Hero() {
   const isMobile = useMediaQuery({ maxWidth:853 });
 
-  const contextRef = useRef(null);
-  const headerRef = useRef(null);
-  const aboutText = `I help growing brands and startups gain 
-  an unfair advantage through premium 
-  results drives webs/apps`
-
-  useGSAP(() => {
-    const tl = gsap.timeline();
-    tl.from(contextRef.current, {
-      y: "50vh",
-      duration: 1,
-      ease: "circ.out",
-    });
-    tl.from(headerRef.current, {
-      opacity: 0,
-      y: "200",
-      duration: 1,
-      ease: "circ.out",
-    },
-    "<+0.2"
-  )
-  }, [])
   return (
     <section id="home" className="flex flex-col justify-end min-h-screen">
       
