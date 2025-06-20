@@ -17,7 +17,9 @@ function About() {
             textColor={"text-white"}
             withScrollTriger = {true}
         />
-       
+        <div
+            className="flex flex-col items-center justify-center gap-16 px-10 pb-16 text-xl font-light tracking-wide lg:flex-row md:text-2xl lg:text-3xl text-white/60"
+        ></div>
     </section>
 
 )}
