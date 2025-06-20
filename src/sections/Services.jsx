@@ -25,7 +25,7 @@ function Services() {
           ref={(el) => (serviceRefs.current[index] = el)} 
           key={index}
           className="sticky px-10 pt-6 pb-12 text-white bg-black border-t-2 border-white/30"
-          style={isDesktop?{top: `cal(10vh + ${index*5})`, marginBottom:`${(servicesData.length - index -1) *5}rem`,
+          style={isDesktop?{top: `calc(10vh + ${index*5}em)`, marginBottom:`${(servicesData.length - index -1) *5}rem`,
           }
           : {top: 0}
         }
