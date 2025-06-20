@@ -14,6 +14,7 @@ const App = () => {
       <ServiceSummary />
       <Services />
       <About />
+      <Works />
     </ReactLenis>
   )
 }
