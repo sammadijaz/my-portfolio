@@ -4,15 +4,19 @@ import AnimatedTextLines from "./AnimatedTextLines";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
-function AnimatedHeaderSection() {
+function AnimatedHeaderSection( {subTitle, title, text, textColor, withScrollTriger = false} ) {
   const contextRef = useRef(null);
     const headerRef = useRef(null);
-    const aboutText = `I help growing brands and startups gain 
-    an unfair advantage through premium 
-    results drives webs/apps`
+    
   
     useGSAP(() => {
-      const tl = gsap.timeline();
+      const tl = gsap.timeline({
+        scrollTrigger: withScrollTriger 
+        ? {
+            trigger: contextRef.current,
+          }
+        : undefined,
+      });
       tl.from(contextRef.current, {
         y: "50vh",
         duration: 1,
@@ -36,20 +40,24 @@ function AnimatedHeaderSection() {
               ref={headerRef} 
               className="flex flex-col justify-center gap-12 pt-16 sm:gap-16"
               >
-                <p className="text-sm font-light tracking-[0.5rem] uppercase px-10 text-black">
-                  404 No Bugs Found
+                <p 
+                className={`text-sm font-light tracking-[0.5rem] uppercase px-10 ${textColor}`}
+                >
+                  { subTitle }
                 </p>
                 <div className="px-7">
-                  <h1 className="flex flex-col flex-wrap gap-12 text-black uppercase text-[45px] banner-text-responsive sm:text-7xl md:text-8xl lg:text-9xl sm:gap-16 md:block">
-                    Sammad Ijaz
+                  <h1 className={`flex flex-col flex-wrap gap-12 ${textColor} uppercase text-[45px] banner-text-responsive sm:text-7xl md:text-8xl lg:text-9xl sm:gap-16 md:block`}>
+                    { title }
                   </h1>
                 </div>
               </div>
             </div>
-            <div className="relative px-10 text-black">
+            <div className={`relative px-10 `}>
               <div className="absolute inset-x-0 border-t-2" />
               <div className="py-12 sm:py-16 text-end">
-                <AnimatedTextLines text={aboutText} className="font-light uppercase value-text-responsive" />
+                <AnimatedTextLines 
+                text={text} 
+                className={`font-light uppercase value-text-responsive ${textColor}`} />
       
               </div>
     
