@@ -2,12 +2,30 @@ import { useMediaQuery } from "react-responsive";
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
 import { servicesData } from "../constants";
 import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
 
 function Services() {
   const text = `I build secure, high-performance full-stack apps with smooth UX to drive growth not headaches.`;
 
   const serviceRefs = useRef([]);
   const isDesktop = useMediaQuery({ minWidth: "48rem" }); // 48rem = 768px
+  useGSAP(() => {
+    serviceRefs.current.forEach((el) => {
+      if (!el) return;
+
+      gsap.from(el, {
+        y: 200,
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%",
+        },
+        duration: 1,
+        ease: "circ.out"
+      })
+    })
+  })
   return (
     <section 
     id="services"
