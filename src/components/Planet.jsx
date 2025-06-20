@@ -49,7 +49,6 @@ export function Planet(props) {
           geometry={nodes.Sphere.geometry}
           material={materials['Material.002']}
           rotation={[0, 0, 0.741]}
-          scale={0.96}
         />
         <mesh
           castShadow
@@ -58,7 +57,7 @@ export function Planet(props) {
           material={materials['Material.001']}
           position={[0.647, 1.03, -0.724]}
           rotation={[0, 0, 0.741]}
-          scale={0.18}
+          scale={0.223}
         />
       </group>
       <mesh
@@ -68,7 +67,7 @@ export function Planet(props) {
         geometry={nodes.Ring.geometry}
         material={materials['Material.001']}
         rotation={[-0.124, 0.123, -0.778]}
-        scale={1.55}
+        scale={2}
       />
     </group>
   )
