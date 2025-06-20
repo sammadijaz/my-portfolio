@@ -73,4 +73,4 @@ export function Planet(props) {
   )
 }
 
-useGLTF.preload('/models/Planet.glb')
+useGLTF.preload("/my-portfolio/models/Planet.glb")
