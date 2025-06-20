@@ -25,19 +25,15 @@ function Services() {
           ref={(el) => (serviceRefs.current[index] = el)} 
           key={index}
           className="sticky px-10 pt-6 pb-12 text-white bg-black border-t-2 border-white/30"
-          style = {
-            isDesktop 
-            ? { 
-                top: `cal(10vh + ${index*5})`,
-                marginBottom: `${(servicesData.length - index -1) * 5}rem`,
-              }
-            : { top: 0 }
+          style={isDesktop?{top: `cal(10vh + ${index*5})`, marginBottom:`${(servicesData.length - index -1) *5}rem`,
           }
+          : {top: 0}
+        }
           >
             <div className="flex items-center justify-center gap-4 font-light">
               <div className="flex flex-col gap-6">
                 <h2 className="text-4xl lg:text-5xl">{service.title}</h2>
-                <p className="text-xl leading-relaxed tracking-widest lg:text-2xl text-white/60 text-pretty">{service.description}</p>
+                <p className="text-xl leading-relaxed tracking-widest lg:text-2xl text-white/60 text-pret ty">{service.description}</p>
                 <div className="flex flex-col gap-2 text-2xl sm:gap-4 lg:text-3xl text-white/80"></div>
                 {service.items.map((item, itemIndex) => (
                   <div key={ `item-${index}-${itemIndex}` }>
