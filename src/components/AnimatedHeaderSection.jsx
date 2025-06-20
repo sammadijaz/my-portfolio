@@ -1,10 +1,10 @@
 import React from 'react';
 import { useRef } from "react";
-import AnimatedTextLines from "../components/AnimatedTextLines";
+import AnimatedTextLines from "./AnimatedTextLines";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
-function AnimatedHeader() {
+function AnimatedHeaderSection() {
   const contextRef = useRef(null);
     const headerRef = useRef(null);
     const aboutText = `I help growing brands and startups gain 
@@ -59,4 +59,4 @@ function AnimatedHeader() {
   );
 }
 
-export default AnimatedHeader;
+export default AnimatedHeaderSection;

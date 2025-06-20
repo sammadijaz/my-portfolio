@@ -2,7 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import { Planet } from "../components/Planet";
 import { Environment, Float, Lightformer } from "@react-three/drei";
 import { useMediaQuery } from "react-responsive";
-import AnimatedHeader from "../components/AnimatedHeader";
+import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
 
 
 function Hero() {
@@ -11,7 +11,7 @@ function Hero() {
   return (
     <section id="home" className="flex flex-col justify-end min-h-screen">
       
-      <AnimatedHeader />
+      <AnimatedHeaderSection />
 
       <figure
       className="absolute inset-0 -z-50"
