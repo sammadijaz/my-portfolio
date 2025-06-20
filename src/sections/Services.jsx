@@ -1,8 +1,10 @@
 function Services() {
   return (
-    <div>
-      Services
-    </div>
+    <section 
+    id="services"
+    className="min-h-screen bg-black rounded-t-4xl"
+    >
+    </section>
   );
 }
 
