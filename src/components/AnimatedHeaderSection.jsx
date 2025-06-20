@@ -53,7 +53,7 @@ function AnimatedHeaderSection( {subTitle, title, text, textColor, withScrollTri
               </div>
             </div>
             <div className={`relative px-10 `}>
-              <div className="absolute inset-x-0 border-t-2" />
+              <div className={`absolute inset-x-0 border-t-2 ${textColor}`} />
               <div className="py-12 sm:py-16 text-end">
                 <AnimatedTextLines 
                 text={text} 
