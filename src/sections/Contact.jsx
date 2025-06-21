@@ -1,7 +1,32 @@
+import { useGSAP } from "@gsap/react";
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
+import Marquee from "../components/Marquee";
 import { socials } from "../constants";
+import gsap from "gsap/all";
 const Contact = () => {
   const text = `Got a question or any project idea? I'd love to hear about it and discuss further!`;
+  const items = [
+    "You Just Imagine, I'll Code",
+    "You Just Imagine, I'll Code",
+    "You Just Imagine, I'll Code",
+    "You Just Imagine, I'll Code",
+    "You Just Imagine, I'll Code",
+    "You Just Imagine, I'll Code",
+  ];
+
+  useGSAP(() => {
+    gsap.from(".social-link", {
+      y: 100,
+      opacity: 0,
+      delay: 0.5,
+      duration: 1,
+      stagger: 0.3,
+      ease: "back.out",
+      scrollTrigger: {
+        trigger: ".social-link",
+      },
+    })
+  }, []);
   return (
     <section
       id="contact"
@@ -45,6 +70,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <Marquee items={items} className="text-white bg-transparent"/>
     </section>
   );
 };
