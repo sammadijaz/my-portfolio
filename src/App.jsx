@@ -42,7 +42,7 @@ const App = () => {
         <ServiceSummary />
         <Services />
         <About />
-        {/* <Works /> */}
+        <Works />
         <ContactSummary />
         <Contact />
       </div>
