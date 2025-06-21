@@ -31,6 +31,7 @@ const Works = () => {
                 </div>
                 {/* divider */}
                 <div className="w-full h-0.5 bg-black/80" />
+                {/* techstack */}
             </div>
           ))}
         </div>
