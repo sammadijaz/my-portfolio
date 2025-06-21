@@ -29,7 +29,7 @@ const Works = () => {
                   </h2>
                   <Icon icon="lucide:arrow-up-right" className="size-5 md:size-6 " />
                 </div>
-                
+                {/* divider */}
             </div>
           ))}
         </div>
