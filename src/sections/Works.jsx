@@ -21,10 +21,15 @@ const Works = () => {
               className="relative flex flex-col gap-1 py-5 cursor-pointer group md:gap-0"
               >
                 {/* TITLE */}
-                <div className="lg:text-[32px] text-[26px] leading-none">
-                  <h2>{project.name}</h2>
+                <div className="flex justify-between px-10 text-black transition-all duration-500 md-group-hover:px12 md:group-hover:text-white">
+                  <h2
+                  className="lg:text-[37px] text-[30px] leading-none"
+                  >
+                    {project.name}
+                  </h2>
                   <Icon icon="lucide:arrow-up-right" className="size-5 md:size-6 " />
                 </div>
+                
             </div>
           ))}
         </div>
