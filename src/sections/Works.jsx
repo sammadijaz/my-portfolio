@@ -30,6 +30,7 @@ const Works = () => {
                   <Icon icon="lucide:arrow-up-right" className="size-5 md:size-6 " />
                 </div>
                 {/* divider */}
+                <div className="w-full h-0.5 bg-black/80" />
             </div>
           ))}
         </div>
