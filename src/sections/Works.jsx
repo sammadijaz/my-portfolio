@@ -11,6 +11,9 @@ const Works = () => {
             textColor={"text-black"}
             withScrollTriger = {true}
         />
+        <div className="relative flex flex-col font-light">
+
+        </div>
     </section>
   )
 }
