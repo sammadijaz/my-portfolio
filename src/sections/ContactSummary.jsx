@@ -1,13 +1,21 @@
 import React, { useRef } from 'react'
+import Marquee from '../components/Marquee'
 
 const ContactSummary = () => {
   const containerRef = useRef(null)
+  const items = [
+    "Innovation",
+    "Precision",
+    "Trust",
+    "Collaboration",
+    "Excellence",
+  ];
   return (
     <section
       ref={containerRef}
       className='flex flex-col items-center justify-between min-h-screen gap-12 mt-16'
     >
-      {/* MARQUEE */}
+      <Marquee items={items}/>
 
       <div className='overflow-hidden font-light text-center contact-text-responsive'>
         <p>
