@@ -40,12 +40,12 @@ const App = () => {
       >
         <Navbar />
         <Hero />
-        {/* <ServiceSummary /> */}
-        {/* <Services /> */}
-        {/* <About /> */}
-        {/* <Works /> */}
-        {/* <ContactSummary /> */}
-        {/* <Contact /> */}
+        <ServiceSummary />
+        <Services />
+        <About />
+        <Works />
+        <ContactSummary />
+        <Contact />
       </div>
     </ReactLenis>
   );
