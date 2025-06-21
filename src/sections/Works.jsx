@@ -1,10 +1,21 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
 import { projects } from "../constants";
+import { useState } from "react";
 
 const Works = () => {
+  const [currentIndex, setCurrentIndex] = useState(null)
   const text =
     "Featured projects that have been meticulously crafted with passion to drive results and impact.";
+  
+  const handleMouseEnter = (index) => {
+    if (window.innerWidth < 768) return;
+    setCurrentIndex(index);
+  };  
+  const handleMouseLeave = (index) => {
+    if (window.innerWidth < 768) return;
+    setCurrentIndex(null);
+  };  
   return (
     <section id="work" className="flex flex-col min-h-screen">
       <AnimatedHeaderSection
@@ -20,6 +31,8 @@ const Works = () => {
             key={project.id}
             id="projects"
             className="relative flex flex-col gap-1 py-5 cursor-pointer group md:gap-0"
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={() => handleMouseLeave(index)}
           >
             {/* TITLE */}
             <div className="flex justify-between px-10 text-black transition-all duration-500 md-group-hover:px12 md:group-hover:text-white">
@@ -65,6 +78,18 @@ const Works = () => {
         ))}
 
         {/* desktop floating preview image */}
+        <div 
+          className="fixed top-0 left-0 z-50 overflow-hidden border-8 border-black pointer-events-none w-[960px] md:block hidden"
+        >
+          {currentIndex !== null && (
+          <img 
+            src={projects[currentIndex].image} 
+            alt="preview" 
+            className="object-cover w-full h-full"
+            />
+          )}
+
+        </div>
       </div>
     </section>
   );
