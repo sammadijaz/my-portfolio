@@ -97,13 +97,13 @@ const Works = () => {
 
   }
   return (
-    <section id="work" className="flex flex-col min-h-screen flex-wrap overflow-hidden">
+    <section id="work" className="flex flex-col min-h-screen overflow-auto">
       <AnimatedHeaderSection
         subTitle={"Logic meets Aesthetics, Seamlessly"}
         title={"Works"}
         text={text}
         textColor={"text-black"}
-        withScrollTrigger={true}
+        withScrollTriger={true}
       />
       <div 
         className="relative flex flex-col font-light"
@@ -113,7 +113,7 @@ const Works = () => {
           <div
             key={project.id}
             id="projects"
-            className="relative flex flex-col gap-1 py-5 cursor-pointer group md:gap-0"
+            className=" flex flex-col gap-1 py-5 cursor-pointer group md:gap-0"
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={() => handleMouseLeave(index)}
           >
@@ -128,7 +128,7 @@ const Works = () => {
 
             {/* TITLE */}
             <div className="flex justify-between px-10 text-black transition-all duration-500 md:group-hover:px12 md:group-hover:text-white">
-              <h2 className="lg:text-[37px] text-[30px] leading-none">
+              <h2 className="lg:text-[32px] text-[26px] leading-none">
                 {project.name}
               </h2>
               <Icon
@@ -141,7 +141,7 @@ const Works = () => {
 
             {/* TECHSTACK*/}
             <div
-              className="flex px-10 text-lg leading-loose uppercase tracking-all duration-500 md:text-xl gap-x-5 md:group-hover:px-12"
+              className="flex px-10 text-xs leading-loose uppercase tracking-all duration-500 md:text-sm gap-x-5 md:group-hover:px-12 text-pretty"
             >
               {project.techstack.map((stack) => (
                 <p 
