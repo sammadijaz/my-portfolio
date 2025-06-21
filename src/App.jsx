@@ -42,9 +42,9 @@ const App = () => {
         <ServiceSummary />
         <Services />
         <About />
-        <Works />
-        {/* <ContactSummary /> */}
-        {/* <Contact /> */}
+        {/* <Works /> */}
+        <ContactSummary />
+        <Contact />
       </div>
     </ReactLenis>
   );

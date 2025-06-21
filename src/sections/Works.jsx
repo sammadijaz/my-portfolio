@@ -4,7 +4,6 @@ import { projects } from "../constants";
 import { useRef, useState } from "react";
 import gsap from "gsap/all";
 import { useGSAP } from "@gsap/react";
-import { overlay } from "three/tsl";
 
 const Works = () => {
   const overlayRefs = useRef([]);
@@ -14,8 +13,8 @@ const Works = () => {
   const text = "Featured projects that have been meticulously crafted with passion to drive results and impact.";
 
   const mouse = useRef({x: 0, y: 0});
-  const moveX = useRef(null)
-  const moveY = useRef(null)
+  const moveX = useRef(null);
+  const moveY = useRef(null);
 
   useGSAP(() => {
     moveX.current = gsap.quickTo(previewRef.current, "x", {
@@ -49,11 +48,11 @@ const Works = () => {
     const el = overlayRefs.current[index];
     if (!el) return;
 
-    gsap.killTweensOf(el)
+    gsap.killTweensOf(el);
     gsap.fromTo(el, {
-      clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)"
+      clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)"
     },
-    { clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
+    { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
       duration: 0.15,
       ease: "power2.out",
      }
@@ -76,7 +75,7 @@ const Works = () => {
 
     gsap.killTweensOf(el)
     gsap.to(el, {
-      clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)",
+      clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
       duration: 0.2,
       ease: "power2.in"
     })
@@ -104,7 +103,7 @@ const Works = () => {
         title={"Works"}
         text={text}
         textColor={"text-black"}
-        withScrollTriger={true}
+        withScrollTrigger={true}
       />
       <div 
         className="relative flex flex-col font-light"
@@ -128,7 +127,7 @@ const Works = () => {
             />
 
             {/* TITLE */}
-            <div className="flex justify-between px-10 text-black transition-all duration-500 md-group-hover:px12 md:group-hover:text-white">
+            <div className="flex justify-between px-10 text-black transition-all duration-500 md:group-hover:px12 md:group-hover:text-white">
               <h2 className="lg:text-[37px] text-[30px] leading-none">
                 {project.name}
               </h2>
@@ -137,12 +136,12 @@ const Works = () => {
                 className="size-5 md:size-6 "
               />
             </div>
-            {/* DIVIDED */}
+            {/* DIVIDER */}
             <div className="w-full h-0.5 bg-black/80" />
 
             {/* TECHSTACK*/}
             <div
-              className="flex px-18 text-lg leading-loose uppercase tracking-all duration-500 md:text-xl gap-x-5 md:group-hover:px-12"
+              className="flex px-10 text-lg leading-loose uppercase tracking-all duration-500 md:text-xl gap-x-5 md:group-hover:px-12"
             >
               {project.techstack.map((stack) => (
                 <p 
