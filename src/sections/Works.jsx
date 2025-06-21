@@ -36,7 +36,7 @@ const Works = () => {
 
             {/* techstack */}
             <div
-              className="flex px-18 text-md leading-loose uppercase tracking-all duration-500 md:text-lg gap-x-5 md:group-hover:px-12"
+              className="flex px-18 text-lg leading-loose uppercase tracking-all duration-500 md:text-xl gap-x-5 md:group-hover:px-12"
             >
               {project.techstack.map((stack) => (
                 <p 
@@ -46,9 +46,21 @@ const Works = () => {
                 </p>
               ))}
             </div>
-            
-            {/* mobile preview images */}
 
+            {/* mobile preview images */}
+            <div
+              className="relative flex items-center justify-center px-10 md:hidden h-[400px]"
+            >
+              <img 
+                src={ project.bgImage } 
+                alt={`${project.name}-bg-image`}
+                className="object-cover w-full h-full rounded-md brightness-50" />
+                <img 
+                  src={project.image}
+                  alt={`${project.name}-image`} 
+                  className="absolute bg-center px-14 rounded-xl"
+                  />
+            </div>
           </div>
         ))}
       </div>
