@@ -128,7 +128,7 @@ const Marquee = ({
     Observer.create({
       onChangeY(self) {
         let factor = 2.5;
-        if (self.deltaY < 0) {
+        if ((!reverse && self.deltaY < 0) || (reverse && self.deltaY > 0)) {
           factor *= -1;
         }
         gsap
