@@ -38,7 +38,7 @@ const App = () => {
         } transition-opacity duration-1000`}
       >
         <Navbar />
-        {/* <Hero /> */}
+        <Hero />
         {/* <ServiceSummary /> */}
         {/* <Services /> */}
         {/* <About /> */}
