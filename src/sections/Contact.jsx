@@ -1,6 +1,11 @@
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <section
+      id="contact"
+      className="flex flex-col justify-between min-h-screen bg-black"
+    >
+
+    </section>
   )
 }
 
