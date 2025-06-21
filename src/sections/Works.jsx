@@ -1,3 +1,4 @@
+import { Icon } from "@iconify/react/dist/iconify.js"
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection"
 import { projects } from "../constants"
 
@@ -22,6 +23,7 @@ const Works = () => {
                 {/* TITLE */}
                 <div className="lg:text-[32px] text-[26px] leading-none">
                   <h2>{project.name}</h2>
+                  <Icon icon="lucide:arrow-up-right" className="size-5 md:size-6 " />
                 </div>
             </div>
           ))}
