@@ -1,9 +1,11 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import AnimatedHeaderSection from "../components/AnimatedHeaderSection";
 import { projects } from "../constants";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import gsap from "gsap/all";
 
 const Works = () => {
+  const previewRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(null)
   const text =
     "Featured projects that have been meticulously crafted with passion to drive results and impact.";
@@ -11,10 +13,22 @@ const Works = () => {
   const handleMouseEnter = (index) => {
     if (window.innerWidth < 768) return;
     setCurrentIndex(index);
+    gsap.to(previewRef.current, {
+      opacity: 1,
+      scale: 1,
+      duration: 0.3,
+      ease: "power2.out"
+    });
   };  
   const handleMouseLeave = (index) => {
     if (window.innerWidth < 768) return;
     setCurrentIndex(null);
+    gsap.to(previewRef.current, {
+      opacity: 0,
+      scale: 0.95,
+      duration: 0.3,
+      ease: "power2.out"
+    });
   };  
   return (
     <section id="work" className="flex flex-col min-h-screen">
@@ -79,7 +93,8 @@ const Works = () => {
 
         {/* desktop floating preview image */}
         <div 
-          className="fixed top-0 left-0 z-50 overflow-hidden border-8 border-black pointer-events-none w-[960px] md:block hidden"
+          ref={previewRef}
+          className="fixed top-0 left-0 z-50 overflow-hidden border-8 border-black pointer-events-none w-[960px] md:block hidden opacity-0"
         >
           {currentIndex !== null && (
           <img 
