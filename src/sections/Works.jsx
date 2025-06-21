@@ -63,6 +63,8 @@ const Works = () => {
             </div>
           </div>
         ))}
+
+        {/* desktop floating preview image */}
       </div>
     </section>
   );
