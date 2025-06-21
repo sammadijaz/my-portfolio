@@ -75,6 +75,10 @@ const Works = () => {
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={() => handleMouseLeave(index)}
           >
+
+            {/* OVERLAY */}
+            <div className="" />
+
             {/* TITLE */}
             <div className="flex justify-between px-10 text-black transition-all duration-500 md-group-hover:px12 md:group-hover:text-white">
               <h2 className="lg:text-[37px] text-[30px] leading-none">
