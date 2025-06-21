@@ -85,10 +85,10 @@ const Works = () => {
                 className="size-5 md:size-6 "
               />
             </div>
-            {/* divider */}
+            {/* DIVIDED */}
             <div className="w-full h-0.5 bg-black/80" />
 
-            {/* techstack */}
+            {/* TECHSTACK*/}
             <div
               className="flex px-18 text-lg leading-loose uppercase tracking-all duration-500 md:text-xl gap-x-5 md:group-hover:px-12"
             >
@@ -101,7 +101,7 @@ const Works = () => {
               ))}
             </div>
 
-            {/* mobile preview images */}
+            {/* MOBILE PREVIEW IMAGES */}
             <div
               className="relative flex items-center justify-center px-10 md:hidden h-[400px]"
             >
@@ -118,7 +118,7 @@ const Works = () => {
           </div>
         ))}
 
-        {/* desktop floating preview image */}
+        {/* DESKTOP FLOATING PREVIEW IMAGES */}
         <div 
           ref={previewRef}
           className="fixed -top-2/6 left-0 z-50 overflow-hidden border-8 border-black pointer-events-none w-[960px] md:block hidden opacity-0"
