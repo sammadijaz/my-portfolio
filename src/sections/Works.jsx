@@ -46,6 +46,8 @@ const Works = () => {
                 </p>
               ))}
             </div>
+            
+            {/* mobile preview images */}
 
           </div>
         ))}
