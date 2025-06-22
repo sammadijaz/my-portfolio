@@ -42,7 +42,7 @@ const Works = () => {
   })  
   
   const handleMouseEnter = (index) => {
-    if (window.innerWidth < 768) return;
+    if (window.innerWidth > 768) return;
     setCurrentIndex(index);
 
     const el = overlayRefs.current[index];
