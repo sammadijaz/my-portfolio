@@ -42,7 +42,7 @@ const Works = () => {
   })  
   
   const handleMouseEnter = (index) => {
-    if (window.innerWidth > 768) return;
+    if (window.innerWidth < 768) return;
     setCurrentIndex(index);
 
     const el = overlayRefs.current[index];
@@ -97,7 +97,7 @@ const Works = () => {
 
   }
   return (
-    <section id="work" className="flex flex-col min-h-screen">
+    <section id="work" className="flex flex-col min-h-screen overflow-auto">
       <AnimatedHeaderSection
         subTitle={"Logic meets Aesthetics, Seamlessly"}
         title={"Works"}
@@ -141,7 +141,7 @@ const Works = () => {
 
             {/* TECHSTACK*/}
             <div
-              className="flex px-10 text-xs leading-loose uppercase tracking-all duration-500 md:text-sm gap-x-5 md:group-hover:px-12 text-pretty w-full max-w-full overflow-x-hidden flex-wrap"
+              className="flex px-10 text-xs leading-loose uppercase tracking-all duration-500 md:text-sm gap-x-5 md:group-hover:px-12 text-pretty"
             >
               {project.techstack.map((stack) => (
                 <p 
