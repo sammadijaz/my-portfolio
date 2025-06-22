@@ -9,7 +9,6 @@ const Contact = () => {
     "You Just Imagine, I'll Code",
     "You Just Imagine, I'll Code",
     "You Just Imagine, I'll Code",
-    "You Just Imagine, I'll Code",
   ];
 
   useGSAP(() => {
