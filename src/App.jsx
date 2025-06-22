@@ -23,7 +23,7 @@ const App = () => {
   return (
     <ReactLenis root className="relative w-screen min-h-screen overflow-hidden">
       {!isReady && (
-        <div className="fixed inset-0 z-[999] flex flex-col items-center justify-center bg-black text-white tracking-opacity duration-700 font-light">
+        <div className="fixed inset-0 z-[900] flex flex-col items-center justify-center bg-black text-white tracking-opacity duration-700 font-light">
           <p className="mb-4 text-xl tracking-widest animate-pulse">
             Loading {Math.floor(progress)}%
           </p>
