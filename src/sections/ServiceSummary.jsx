@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger)
 
-function ServiceSummary() {
+const ServiceSummary = () => {
 
   useGSAP(() => {
     gsap.to("#title-service-1", {

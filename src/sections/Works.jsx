@@ -36,10 +36,10 @@ const Works = () => {
       ease: "back.out",
       scrollTrigger: {
         trigger: "#projects",
-      }
-    })
+      },
+    });
     
-  })  
+  }, []);
   
   const handleMouseEnter = (index) => {
     if (window.innerWidth < 768) return;
@@ -50,9 +50,9 @@ const Works = () => {
 
     gsap.killTweensOf(el);
     gsap.fromTo(el, {
-      clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)"
+      clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)"
     },
-    { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+    { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
       duration: 0.15,
       ease: "power2.out",
      }
@@ -75,7 +75,7 @@ const Works = () => {
 
     gsap.killTweensOf(el)
     gsap.to(el, {
-      clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+      clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)",
       duration: 0.2,
       ease: "power2.in"
     })
@@ -141,7 +141,7 @@ const Works = () => {
 
             {/* TECHSTACK*/}
             <div
-              className="flex px-10 text-xs leading-loose uppercase tracking-all duration-500 md:text-sm gap-x-5 md:group-hover:px-12 text-pretty"
+              className="flex px-10 text-xs leading-loose uppercase tracking-all duration-500 md:text-sm gap-x-5 md:group-hover:px-12 w-full max-w-full overflow-x-hidden flex-wrap"
             >
               {project.techstack.map((stack) => (
                 <p 
