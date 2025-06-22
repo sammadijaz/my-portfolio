@@ -1,15 +1,26 @@
-import React from 'react'
-import Navbar from './sections/Navbar'
-import Hero from './sections/Hero'
-import ServiceSummary from './sections/ServiceSummary'
-import Services from './sections/Services'
-import ReactLenis from 'lenis/react'
-import About from './sections/About'
-import Works from './sections/Works'
-import ContactSummary from './sections/ContactSummary'
-import Contact from './sections/Contact'
+import React, { useEffect, useState } from "react";
+import Navbar from "./sections/Navbar";
+import Hero from "./sections/Hero";
+import ServiceSummary from "./sections/ServiceSummary";
+import Services from "./sections/Services";
+import ReactLenis from "lenis/react";
+import About from "./sections/About";
+import Works from "./sections/Works";
+import ContactSummary from "./sections/ContactSummary";
+import Contact from "./sections/Contact";
+import { useProgress } from "@react-three/drei";
+import { div } from "three/tsl";
 
 const App = () => {
+  const { progress } = useProgress();
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    if (progress === 100) {
+      setIsReady(true);
+    }
+  }, [progress]);
+
   return (
     <ReactLenis root className="relative w-screen min-h-screen overflow-x-auto">
       {!isReady && (
@@ -37,7 +48,7 @@ const App = () => {
         <Contact />
       </div>
     </ReactLenis>
-  )
-}
+  );
+};
 
-export default App
+export default App;
