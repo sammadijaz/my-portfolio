@@ -17,9 +17,6 @@ const ContactSummary = () => {
     "contact me",
     "contact me",
     "contact me",
-    "contact me",
-    "contact me",
-    "contact me",
   ];
 
   useGSAP(() => {
