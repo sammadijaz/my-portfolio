@@ -156,7 +156,7 @@ function PageNavbar() {
     <>
       <nav
         ref={navRef}
-        className="z-50 fixed flex flex-col justify-between gap-y-10 px-10 py-28 w-full h-full w-1/2 text-white/80 bg-black uppercase md:left-1/2"
+        className="z-50 fixed flex flex-col justify-between gap-y-10 px-10 py-28 w-full h-full text-white/80 bg-black uppercase md:w-1/2 md:left-1/2"
       >
         <div className="flex flex-col gap-y-2 text-5xl md:text-6xl lg:text-8xl">
           {navItems.map((item, index) => (
@@ -214,7 +214,7 @@ function PageNavbar() {
 
       {/* Burger Menu Button */}
       <div
-        className="z-50 fixed top-4 right-10 flex flex-col items-center justify-center gap-1 w-14 h-14 h-20 bg-black rounded-full transition-all duration-300 cursor-pointer md:w-20"
+        className="z-50 fixed top-4 right-10 flex flex-col items-center justify-center gap-1 w-14 h-14 bg-black rounded-full transition-all duration-300 cursor-pointer md:w-20 md:h-20"
         onClick={toggleMenu}
         style={
           showBurger
