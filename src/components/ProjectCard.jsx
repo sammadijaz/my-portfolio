@@ -117,13 +117,13 @@ const ProjectCard = ({ project, index }) => {
           {project.techstack.slice(0, 3).map((tech) => (
             <span
               key={tech.id}
-              className="px-2 py-0.5 text-[10px] tracking-wider text-white/90 bg-white/10 rounded-full uppercase md:px-3 py-1 text-xs"
+              className="px-2 py-0.5 py-1 text-[10px] tracking-wider text-white/90 text-xs bg-white/10 rounded-full uppercase md:px-3"
             >
               {tech.name}
             </span>
           ))}
           {project.techstack.length > 3 && (
-            <span className="px-2 py-0.5 text-[10px] tracking-wider text-gold bg-gold/10 rounded-full uppercase md:px-3 py-1 text-xs">
+            <span className="px-2 py-0.5 py-1 text-[10px] tracking-wider text-gold text-xs bg-gold/10 rounded-full uppercase md:px-3">
               +{project.techstack.length - 3}
             </span>
           )}
