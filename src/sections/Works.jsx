@@ -4,6 +4,7 @@ import { projects } from "../constants";
 import { useRef, useState } from "react";
 import gsap from "gsap/all";
 import { useGSAP } from "@gsap/react";
+import { Link } from "react-router-dom";
 
 const Works = () => {
   const overlayRefs = useRef([]);
@@ -97,7 +98,7 @@ const Works = () => {
 
   }
   return (
-    <section id="work" className="flex flex-col min-h-screen overflow-auto">
+    <section id="work" className="overflow-auto flex flex-col min-h-screen">
       <AnimatedHeaderSection
         subTitle={"Logic meets Aesthetics, Seamlessly"}
         title={"Works"}
@@ -113,7 +114,7 @@ const Works = () => {
           <div
             key={project.id}
             id="projects"
-            className=" flex flex-col gap-1 py-5 cursor-pointer group md:gap-0"
+            className="flex flex-col gap-1 py-5 cursor-pointer group md:gap-0"
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={() => handleMouseLeave(index)}
           >
@@ -123,17 +124,17 @@ const Works = () => {
             ref={(el) => {
               overlayRefs.current[index] = el;
             }}
-            className="absolute inset-0 hidden md:block duration-200 bg-black -z-10 clip-path" 
+            className="absolute inset-0 hidden bg-black duration-200 -z-10 clip-path md:block" 
             />
 
             {/* TITLE */}
-            <div className="flex justify-between px-10 text-black transition-all duration-500 md:group-hover:px12 md:group-hover:text-white">
-              <h2 className="lg:text-[32px] text-[26px] leading-none">
+            <div className="flex justify-between px-10 text-black transition-all duration-500 group-hover:text-white md:group-hover:px12">
+              <h2 className="text-[26px] leading-none lg:text-[32px]">
                 {project.name}
               </h2>
               <Icon
                 icon="lucide:arrow-up-right"
-                className="size-5 md:size-6 "
+                className="size-5 md:size-6"
               />
             </div>
             {/* DIVIDER */}
@@ -141,7 +142,7 @@ const Works = () => {
 
             {/* TECHSTACK*/}
             <div
-              className="flex px-10 text-xs leading-loose uppercase tracking-all duration-500 md:text-sm gap-x-5 md:group-hover:px-12 w-full max-w-full overflow-x-hidden flex-wrap"
+              className="overflow-x-hidden flex flex-wrap gap-x-5 px-10 w-full max-w-full text-xs leading-loose tracking-all duration-500 uppercase group-hover:px-12 md:text-sm"
             >
               {project.techstack.map((stack) => (
                 <p 
@@ -154,7 +155,7 @@ const Works = () => {
 
             {/* MOBILE PREVIEW IMAGES */}
             <div
-              className="relative flex items-center justify-center px-10 md:hidden h-[400px]"
+              className="relative flex items-center justify-center px-10 h-[400px] md:hidden"
             >
               <img 
                 src={ project.bgImage } 
@@ -163,7 +164,7 @@ const Works = () => {
                 <img 
                   src={project.image}
                   alt={`${project.name}-image`} 
-                  className="absolute bg-center px-14 rounded-xl"
+                  className="absolute px-14 bg-center rounded-xl"
                   />
             </div>
           </div>
@@ -172,7 +173,7 @@ const Works = () => {
         {/* DESKTOP FLOATING PREVIEW IMAGES */}
         <div 
           ref={previewRef}
-          className="fixed -top-2/6 left-0 z-50 overflow-hidden border-8 border-black pointer-events-none w-[960px] md:block hidden opacity-0"
+          className="z-50 overflow-hidden fixed left-0 hidden w-[960px] border-8 border-black opacity-0 pointer-events-none -top-2/6 md:block"
         >
           {currentIndex !== null && (
           <img 
@@ -183,6 +184,20 @@ const Works = () => {
           )}
 
         </div>
+      </div>
+
+      {/* View All Projects CTA */}
+      <div className="flex justify-center py-16">
+        <Link 
+          to="/projects" 
+          className="flex items-center gap-4 px-10 py-5 text-white tracking-widest font-light text-lg bg-black transition-all duration-300 group uppercase hover:bg-gold hover:text-black"
+        >
+          View All Projects
+          <Icon
+            icon="lucide:arrow-right"
+            className="transition-transform duration-300 size-5 group-hover:translate-x-2"
+          />
+        </Link>
       </div>
     </section>
   );

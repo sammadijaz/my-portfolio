@@ -169,6 +169,22 @@ export const projects = [
       { id: 4, name: "Chakra UI" },
     ],
   },
+  {
+    id: 7,
+    name: "Mobile Accessories Shop",
+    description:
+      "A sleek e-commerce platform for mobile accessories featuring cases, chargers, earbuds and more with fast checkout.",
+    href: "",
+    image: "/my-portfolio/assets/projects/mobile-accessories-store.jpg",
+    bgImage: "/my-portfolio/assets/backgrounds/blanket.jpg",
+    techstack: [
+      { id: 1, name: "React" },
+      { id: 2, name: "Express.js" },
+      { id: 3, name: "PostgreSQL" },
+      { id: 4, name: "Stripe" },
+      { id: 5, name: "Tailwind CSS" },
+    ],
+  },
 ];
 export const socials = [
   // { name: "Instagram", href: "https://www.instagram.com/iamsammadijaz" },
