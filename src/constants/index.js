@@ -84,8 +84,8 @@ export const projects = [
     description:
       "Capture and record browser tabs with auto-scroll, stylish Beauty Mode videos, and full-page screenshots.",
     href: "https://autocod.sammadijaz.me/",
-    image: "public/assets/projects/autocod.png",
-    bgImage: "public/assets/backgrounds/blanket.jpg",
+    image: "assets/projects/autocod.png",
+    bgImage: "assets/backgrounds/blanket.jpg",
     techstack: [
       { id: 1, name: "JavaScript (ES6+)" },
       { id: 2, name: "Chrome Manifest V3" },
@@ -155,7 +155,7 @@ export const projects = [
     description:
       "A curated collection of designer home decor items, including furniture and artisan vases.",
     href: "https://uas.sammadijaz.me/",
-    image: "assets/projects/home-decor-store.jpg",
+    image: "assets/projects/uas.png",
     bgImage: "assets/backgrounds/table.jpg",
     techstack: [
       { id: 1, name: "Angular" },
