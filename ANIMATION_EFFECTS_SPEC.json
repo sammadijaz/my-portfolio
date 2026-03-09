@@ -1,0 +1,630 @@
+{
+  "project": "my-portfolio",
+  "version": "1.0.0",
+  "date": "2026-03-05",
+  "libraries": {
+    "runtime": [
+      "gsap",
+      "@gsap/react",
+      "ScrollTrigger",
+      "Observer",
+      "lenis/react",
+      "@react-three/fiber",
+      "@react-three/drei",
+      "tailwindcss"
+    ]
+  },
+  "globalEffects": [
+    {
+      "id": "global-smooth-scroll-lenis",
+      "name": "Lenis Smooth Scroll Wrapper",
+      "type": "scroll-smoothing",
+      "trigger": "always",
+      "implementation": {
+        "component": "ReactLenis",
+        "selector": "root app wrapper"
+      },
+      "source": "src/App.jsx"
+    },
+    {
+      "id": "global-native-smooth-scroll",
+      "name": "CSS Smooth Scroll",
+      "type": "css-scroll-behavior",
+      "trigger": "scroll API",
+      "implementation": {
+        "selector": "body",
+        "css": {
+          "scroll-behavior": "smooth"
+        }
+      },
+      "source": "src/index.css"
+    },
+    {
+      "id": "global-home-loader",
+      "name": "Home 3D Loader Overlay",
+      "type": "loading-overlay",
+      "trigger": "home route and useProgress < 100",
+      "implementation": {
+        "textAnimation": "tailwind animate-pulse",
+        "progressBar": {
+          "property": "width",
+          "value": "${progress}%",
+          "transition": "duration-300"
+        },
+        "contentFade": {
+          "property": "opacity",
+          "durationMs": 1000
+        }
+      },
+      "source": "src/App.jsx"
+    }
+  ],
+  "effects": [
+    {
+      "id": "nav-offcanvas-slide",
+      "name": "Off-Canvas Navigation Slide-In",
+      "type": "gsap-timeline",
+      "trigger": "burger click",
+      "breakpoints": "all",
+      "targets": ["navRef.current", "linksRef.current[]", "contactRef.current"],
+      "from": {
+        "nav": { "xPercent": 100 },
+        "linksAndContact": { "autoAlpha": 0, "x": -20 }
+      },
+      "to": {
+        "nav": { "xPercent": 0, "duration": 1.0, "ease": "power3.out" },
+        "links": {
+          "autoAlpha": 1,
+          "x": 0,
+          "stagger": 0.1,
+          "duration": 0.5,
+          "ease": "power2.out"
+        },
+        "contact": {
+          "autoAlpha": 1,
+          "x": 0,
+          "duration": 0.0,
+          "ease": "power2.out"
+        }
+      },
+      "source": ["src/sections/Navbar.jsx", "src/components/PageNavbar.jsx"]
+    },
+    {
+      "id": "nav-burger-morph",
+      "name": "Burger Icon Morph To X",
+      "type": "gsap-timeline",
+      "trigger": "burger click",
+      "targets": ["topLineRef.current", "bottomLineRef.current"],
+      "to": {
+        "top": {
+          "rotate": 45,
+          "y": 3.5,
+          "duration": 0.3,
+          "ease": "power2.inOut"
+        },
+        "bottom": {
+          "rotate": -45,
+          "y": -3.3,
+          "duration": 0.3,
+          "ease": "power2.inOut"
+        }
+      },
+      "source": ["src/sections/Navbar.jsx", "src/components/PageNavbar.jsx"]
+    },
+    {
+      "id": "nav-scroll-hide",
+      "name": "Scroll Direction Burger Hide",
+      "type": "scroll-reactive-visibility",
+      "trigger": "window scroll direction",
+      "implementation": {
+        "showCondition": "currentScrollY <= lastScrollY or currentScrollY < 10",
+        "styleWhenVisible": "clip-path: circle(50% at 50% 50%)",
+        "styleWhenHidden": "clip-path: circle(0% at 50% 50%)"
+      },
+      "source": ["src/sections/Navbar.jsx", "src/components/PageNavbar.jsx"]
+    },
+    {
+      "id": "section-header-intro",
+      "name": "Reusable Header Intro",
+      "type": "gsap-timeline",
+      "trigger": "mount or optional ScrollTrigger",
+      "targets": ["contextRef.current", "headerRef.current"],
+      "from": {
+        "context": { "y": "50vh", "duration": 1.0, "ease": "circ.out" },
+        "header": {
+          "opacity": 0,
+          "y": 200,
+          "duration": 1.0,
+          "ease": "circ.out",
+          "offset": "<+0.2"
+        }
+      },
+      "source": "src/components/AnimatedHeaderSection.jsx"
+    },
+    {
+      "id": "text-lines-stagger",
+      "name": "Multiline Text Stagger Reveal",
+      "type": "gsap-scroll-reveal",
+      "trigger": "ScrollTrigger on text container",
+      "targets": ["linesRef.current[]"],
+      "from": {
+        "y": 100,
+        "opacity": 0,
+        "duration": 1.0,
+        "stagger": 0.3,
+        "ease": "back.out"
+      },
+      "source": "src/components/AnimatedTextLines.jsx"
+    },
+    {
+      "id": "services-card-reveal",
+      "name": "Services Card Rise-In",
+      "type": "gsap-scroll-reveal",
+      "trigger": "each service card enters viewport",
+      "targets": ["serviceRefs.current[]"],
+      "from": {
+        "y": 200,
+        "duration": 1.0,
+        "ease": "circ.out"
+      },
+      "scrollTrigger": {
+        "start": "top 80%"
+      },
+      "source": "src/sections/Services.jsx"
+    },
+    {
+      "id": "service-summary-scrub",
+      "name": "Horizontal Text Parallax Scrub",
+      "type": "gsap-scroll-scrub",
+      "trigger": "page scroll",
+      "targets": [
+        "#title-service-1",
+        "#title-service-2",
+        "#title-service-3",
+        "#title-service-4"
+      ],
+      "to": [
+        { "selector": "#title-service-1", "xPercent": 20, "scrub": true },
+        { "selector": "#title-service-2", "xPercent": -30, "scrub": true },
+        { "selector": "#title-service-3", "xPercent": 100, "scrub": true },
+        { "selector": "#title-service-4", "xPercent": -100, "scrub": true }
+      ],
+      "source": "src/sections/ServiceSummary.jsx"
+    },
+    {
+      "id": "about-section-scale",
+      "name": "About Section Scroll Scale",
+      "type": "gsap-scroll-scrub",
+      "trigger": "about section scroll range",
+      "targets": ["#about"],
+      "to": {
+        "scale": 0.95,
+        "ease": "power1.inOut"
+      },
+      "scrollTrigger": {
+        "trigger": "#about",
+        "start": "bottom 80%",
+        "end": "bottom 20%",
+        "scrub": true
+      },
+      "source": "src/sections/About.jsx"
+    },
+    {
+      "id": "about-image-clip-reveal",
+      "name": "About Image Clip-Path Reveal",
+      "type": "gsap-clip-path",
+      "trigger": "image enters view",
+      "targets": ["imgRef.current"],
+      "set": {
+        "clipPath": "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)"
+      },
+      "to": {
+        "clipPath": "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        "duration": 2.0,
+        "ease": "power4-out"
+      },
+      "source": "src/sections/About.jsx"
+    },
+    {
+      "id": "works-list-reveal",
+      "name": "Works Rows Stagger Reveal",
+      "type": "gsap-scroll-reveal",
+      "trigger": "works section enters view",
+      "targets": ["#projects"],
+      "from": {
+        "y": 100,
+        "opacity": 0,
+        "delay": 0.5,
+        "duration": 1.0,
+        "stagger": 0.3,
+        "ease": "back.out"
+      },
+      "source": "src/sections/Works.jsx"
+    },
+    {
+      "id": "works-overlay-wipe",
+      "name": "Works Hover Overlay Wipe",
+      "type": "gsap-hover-clip-path",
+      "trigger": "desktop mouse enter/leave project row",
+      "targets": ["overlayRefs.current[index]"],
+      "breakpoints": "desktop only (window.innerWidth >= 768)",
+      "enter": {
+        "from": { "clipPath": "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" },
+        "to": {
+          "clipPath": "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
+          "duration": 0.15,
+          "ease": "power2.out"
+        }
+      },
+      "leave": {
+        "to": {
+          "clipPath": "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)",
+          "duration": 0.2,
+          "ease": "power2.in"
+        }
+      },
+      "source": "src/sections/Works.jsx"
+    },
+    {
+      "id": "works-floating-preview",
+      "name": "Cursor-Following Floating Preview",
+      "type": "gsap-quickTo-follow",
+      "trigger": "desktop mouse move in works container",
+      "targets": ["previewRef.current"],
+      "breakpoints": "desktop only (window.innerWidth >= 768)",
+      "follow": {
+        "x": { "duration": 1.5, "ease": "power3.out", "offsetPx": 24 },
+        "y": { "duration": 2.0, "ease": "power3.out", "offsetPx": 24 }
+      },
+      "visibility": {
+        "enter": {
+          "opacity": 1,
+          "scale": 1,
+          "duration": 0.3,
+          "ease": "power2.out"
+        },
+        "leave": {
+          "opacity": 0,
+          "scale": 0.95,
+          "duration": 0.3,
+          "ease": "power2.out"
+        }
+      },
+      "source": "src/sections/Works.jsx"
+    },
+    {
+      "id": "marquee-infinite-loop",
+      "name": "GSAP Seamless Marquee Loop",
+      "type": "gsap-horizontal-loop",
+      "trigger": "always",
+      "targets": ["itemsRef.current[]"],
+      "config": {
+        "repeat": -1,
+        "paddingRight": 30,
+        "reversed": "prop-driven",
+        "speed": 1
+      },
+      "source": "src/components/Marquee.jsx"
+    },
+    {
+      "id": "marquee-scroll-reactive-speed",
+      "name": "Marquee TimeScale Reactivity",
+      "type": "gsap-observer-scroll-reactive",
+      "trigger": "wheel/scroll deltaY",
+      "targets": ["marquee timeline"],
+      "behavior": {
+        "onChangeY": "adjust timeScale direction by deltaY and reverse prop",
+        "burst": { "timeScaleMultiplier": 2.5, "duration": 0.2 },
+        "settle": { "timeScaleDivisor": 2.5, "duration": 1.0, "delay": 0.3 }
+      },
+      "source": "src/components/Marquee.jsx"
+    },
+    {
+      "id": "contact-summary-pin",
+      "name": "Pinned Contact Summary Section",
+      "type": "gsap-scroll-pin",
+      "trigger": "contact summary enters center",
+      "targets": ["containerRef.current"],
+      "scrollTrigger": {
+        "start": "center center",
+        "end": "+=800 center",
+        "scrub": 0.5,
+        "pin": true,
+        "pinSpacing": true
+      },
+      "source": "src/sections/ContactSummary.jsx"
+    },
+    {
+      "id": "contact-summary-cta-reveal",
+      "name": "Contact Summary CTA Fade-Up",
+      "type": "gsap-scroll-reveal",
+      "trigger": "cta top reaches 85%",
+      "targets": ["ctaRef.current"],
+      "from": {
+        "y": 50,
+        "opacity": 0,
+        "duration": 0.8,
+        "ease": "power2.out"
+      },
+      "source": "src/sections/ContactSummary.jsx"
+    },
+    {
+      "id": "contact-social-stagger",
+      "name": "Contact Social Blocks Stagger",
+      "type": "gsap-scroll-reveal",
+      "trigger": "social-link elements in view",
+      "targets": [".social-link"],
+      "from": {
+        "y": 100,
+        "opacity": 0,
+        "delay": 0.5,
+        "duration": 1.0,
+        "stagger": 0.3,
+        "ease": "back.out"
+      },
+      "source": "src/sections/Contact.jsx"
+    },
+    {
+      "id": "projects-page-intro-sequence",
+      "name": "Projects Page Intro Timeline",
+      "type": "gsap-timeline",
+      "trigger": "page mount",
+      "targets": [
+        "headerRef.current",
+        "subHeaderRef.current",
+        "backLinkRef.current",
+        "statsRef.current.children[]"
+      ],
+      "sequence": [
+        {
+          "target": "header",
+          "from": { "y": "50vh", "duration": 1.0, "ease": "circ.out" }
+        },
+        {
+          "target": "subheader",
+          "from": {
+            "opacity": 0,
+            "y": 50,
+            "duration": 0.8,
+            "ease": "power2.out"
+          },
+          "offset": "<+0.3"
+        },
+        {
+          "target": "backLink",
+          "from": {
+            "x": -50,
+            "opacity": 0,
+            "duration": 0.6,
+            "ease": "power2.out"
+          },
+          "offset": "<"
+        },
+        {
+          "target": "stats",
+          "from": {
+            "y": 30,
+            "opacity": 0,
+            "duration": 0.5,
+            "stagger": 0.1,
+            "ease": "power2.out"
+          },
+          "offset": "<+0.2"
+        }
+      ],
+      "source": "src/pages/ProjectsPage.jsx"
+    },
+    {
+      "id": "projects-grid-scroll-cards",
+      "name": "Projects Grid Card Scroll Reveal",
+      "type": "gsap-scroll-reveal",
+      "trigger": "each card top reaches 85%",
+      "targets": ["projectRefs.current[]"],
+      "from": {
+        "y": 100,
+        "opacity": 0,
+        "duration": 0.8,
+        "ease": "power3.out"
+      },
+      "extra": {
+        "delayByIndex": "index * 0.1"
+      },
+      "source": "src/pages/ProjectsPage.jsx"
+    },
+    {
+      "id": "project-card-hover",
+      "name": "Project Card Hover Zoom and Overlay",
+      "type": "gsap-hover",
+      "trigger": "desktop mouse enter/leave card",
+      "targets": [
+        "imageRef.current",
+        "overlayRef.current",
+        "contentRef.current"
+      ],
+      "breakpoints": "desktop only (window.innerWidth >= 768)",
+      "enter": {
+        "image": { "scale": 1.1, "duration": 0.6, "ease": "power2.out" },
+        "overlay": { "opacity": 0.85, "duration": 0.3, "ease": "power2.out" },
+        "content": {
+          "y": 0,
+          "opacity": 1,
+          "duration": 0.4,
+          "ease": "power2.out"
+        }
+      },
+      "leave": {
+        "image": { "scale": 1.0, "duration": 0.6, "ease": "power2.out" },
+        "overlay": { "opacity": 0.5, "duration": 0.3, "ease": "power2.out" },
+        "content": {
+          "y": 10,
+          "opacity": 1,
+          "duration": 0.4,
+          "ease": "power2.out"
+        }
+      },
+      "source": "src/components/ProjectCard.jsx"
+    },
+    {
+      "id": "contact-form-intro-sequence",
+      "name": "Contact Form Intro Timeline",
+      "type": "gsap-timeline",
+      "trigger": "page mount",
+      "targets": [
+        "headerRef.current",
+        "backLinkRef.current",
+        "inputRefs.current[]",
+        "buttonRef.current"
+      ],
+      "sequence": [
+        {
+          "target": "header",
+          "from": { "y": "50vh", "duration": 1.0, "ease": "circ.out" }
+        },
+        {
+          "target": "backLink",
+          "from": {
+            "x": -50,
+            "opacity": 0,
+            "duration": 0.6,
+            "ease": "power2.out"
+          },
+          "offset": "<+0.2"
+        },
+        {
+          "target": "inputs",
+          "from": {
+            "y": 100,
+            "opacity": 0,
+            "duration": 0.8,
+            "stagger": 0.15,
+            "ease": "back.out(1.7)"
+          },
+          "offset": "<+0.3"
+        },
+        {
+          "target": "button",
+          "from": {
+            "scale": 0,
+            "opacity": 0,
+            "duration": 0.5,
+            "ease": "back.out(2)"
+          },
+          "offset": "<+0.2"
+        }
+      ],
+      "source": "src/pages/ContactFormPage.jsx"
+    },
+    {
+      "id": "contact-form-success-pulse",
+      "name": "Form Success Micro Pulse",
+      "type": "gsap-feedback",
+      "trigger": "successful form submission",
+      "targets": ["formRef.current"],
+      "to": {
+        "scale": 0.98,
+        "duration": 0.1,
+        "yoyo": true,
+        "repeat": 1,
+        "ease": "power2.inOut"
+      },
+      "source": "src/pages/ContactFormPage.jsx"
+    },
+    {
+      "id": "hero-3d-float",
+      "name": "Hero 3D Planet Float",
+      "type": "r3f-drei-float",
+      "trigger": "always",
+      "targets": ["<Planet />"],
+      "implementation": {
+        "component": "<Float>",
+        "props": { "speed": 0.5 }
+      },
+      "source": "src/sections/Hero.jsx"
+    },
+    {
+      "id": "planet-intro-motion",
+      "name": "Planet Intro Position and Rotation",
+      "type": "gsap-3d-transform",
+      "trigger": "model mount",
+      "targets": [
+        "shapeContainer.current.position",
+        "shapeContainer.current.rotation",
+        "ringContainer.current.rotation"
+      ],
+      "sequence": [
+        {
+          "target": "shape position",
+          "from": { "y": 5, "duration": 3.0, "ease": "circ.out" }
+        },
+        {
+          "target": "shape rotation",
+          "from": {
+            "x": 0,
+            "y": 3.141592653589793,
+            "z": -3.141592653589793,
+            "duration": 10.0,
+            "ease": "power1.inOut"
+          },
+          "offset": "-=25%"
+        },
+        {
+          "target": "ring rotation",
+          "from": {
+            "x": 0.8,
+            "y": 0,
+            "z": 0,
+            "duration": 10.0,
+            "ease": "power1.inOut"
+          },
+          "offset": "<"
+        }
+      ],
+      "source": "src/components/Planet.jsx"
+    }
+  ],
+  "tailwindInteractiveEffects": [
+    {
+      "id": "tailwind-hover-buttons",
+      "name": "CTA Color and Transform Hovers",
+      "patterns": [
+        "hover:bg-color",
+        "hover:text-color",
+        "group-hover:translate-x-2",
+        "group-hover:scale-110",
+        "group-hover:-translate-x-1",
+        "group-hover:-translate-y-1",
+        "group-hover:rotate-45"
+      ],
+      "source": [
+        "src/sections/Works.jsx",
+        "src/sections/Contact.jsx",
+        "src/sections/ContactSummary.jsx",
+        "src/pages/ProjectsPage.jsx",
+        "src/pages/ContactFormPage.jsx",
+        "src/components/ProjectCard.jsx"
+      ]
+    },
+    {
+      "id": "tailwind-status-animations",
+      "name": "Pulse and Spin Utility Animations",
+      "patterns": ["animate-pulse", "animate-spin"],
+      "source": ["src/App.jsx", "src/pages/ContactFormPage.jsx"]
+    }
+  ],
+  "mobileDesktopBehavior": [
+    {
+      "id": "desktop-only-hover-suite",
+      "condition": "window.innerWidth >= 768",
+      "effects": [
+        "works-overlay-wipe",
+        "works-floating-preview",
+        "project-card-hover"
+      ]
+    },
+    {
+      "id": "mobile-fallback-previews",
+      "condition": "window.innerWidth < 768",
+      "behavior": "disable hover previews and show inline project images"
+    }
+  ]
+}
