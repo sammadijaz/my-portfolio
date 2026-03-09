@@ -84,8 +84,8 @@ export const projects = [
     description:
       "Capture and record browser tabs with auto-scroll, stylish Beauty Mode videos, and full-page screenshots.",
     href: "https://autocod.sammadijaz.me/",
-    image: "/my-portfolio/assets/projects/autocod.png",
-    bgImage: "/my-portfolio/assets/backgrounds/blanket.jpg",
+    image: "public/assets/projects/autocod.png",
+    bgImage: "public/assets/backgrounds/blanket.jpg",
     techstack: [
       { id: 1, name: "JavaScript (ES6+)" },
       { id: 2, name: "Chrome Manifest V3" },
@@ -102,8 +102,8 @@ export const projects = [
     description:
       "Grabs AI is an enterprise-grade lead scraping and enrichment platform that automates the discovery, extraction, and normalization of business contact data from Google Maps at scale.",
     href: "https://www.grabsai.app/",
-    image: "/my-portfolio/assets/projects/grabs-ai.png",
-    bgImage: "/my-portfolio/assets/backgrounds/curtains.jpg",
+    image: "assets/projects/grabs-ai.png",
+    bgImage: "assets/backgrounds/curtains.jpg",
     techstack: [
       { id: 1, name: "React" },
       { id: 2, name: "Next.js" },
@@ -113,8 +113,8 @@ export const projects = [
       { id: 6, name: "Three.js" },
       { id: 7, name: "Render" },
       { id: 8, name: "Puppeteer" },
-      { id: 8, name: "Docker" },
-      { id: 9, name: "Supabase" },
+      { id: 9, name: "Docker" },
+      { id: 10, name: "Supabase" },
     ],
   },
   {
@@ -123,8 +123,8 @@ export const projects = [
     description:
       "Cozy Starfall Tab is a Chrome Manifest V3 extension that transforms the browser's default New Tab into a fully interactive, animated night sky environment. It serves as a multi-purpose productivity and mindfulness tool that combines real-time countdown/countup timers with ambient visual effects, quick-access shortcuts to recently visited sites, and deep customization options—all stored locally on the user's device with zero server dependencies.",
     href: "",
-    image: "/my-portfolio/assets/projects/cozy-starfall.png",
-    bgImage: "/my-portfolio/assets/backgrounds/map.jpg",
+    image: "assets/projects/cozy-starfall.png",
+    bgImage: "assets/backgrounds/map.jpg",
     techstack: [
       { id: 1, name: "JavaScript (ES6+)" },
       { id: 2, name: "Chrome Manifest V3" },
@@ -139,8 +139,8 @@ export const projects = [
     description:
       "The most aesthetic flip clock extension for your browser. Focus better, look better.",
     href: "https://lumina.sammadijaz.me/",
-    image: "/my-portfolio/assets/projects/lumina-flip-clock.png",
-    bgImage: "/my-portfolio/assets/backgrounds/poster.jpg",
+    image: "assets/projects/lumina-flip-clock.png",
+    bgImage: "assets/backgrounds/poster.jpg",
     techstack: [
       { id: 1, name: "JavaScript (ES6+)" },
       { id: 2, name: "Chrome Manifest V3" },
@@ -155,8 +155,8 @@ export const projects = [
     description:
       "A curated collection of designer home decor items, including furniture and artisan vases.",
     href: "https://uas.sammadijaz.me/",
-    image: "/my-portfolio/assets/projects/home-decor-store.jpg",
-    bgImage: "/my-portfolio/assets/backgrounds/table.jpg",
+    image: "assets/projects/home-decor-store.jpg",
+    bgImage: "assets/backgrounds/table.jpg",
     techstack: [
       { id: 1, name: "Angular" },
       { id: 2, name: "Firebase" },
@@ -170,8 +170,8 @@ export const projects = [
     description:
       "A gaming platform featuring discounted titles, top sellers, and genre-based browsing.",
     href: "",
-    image: "/my-portfolio/assets/projects/game-store.jpg",
-    bgImage: "/my-portfolio/assets/backgrounds/curtains.jpg",
+    image: "assets/projects/game-store.jpg",
+    bgImage: "assets/backgrounds/curtains.jpg",
     techstack: [
       { id: 1, name: "Svelte" },
       { id: 2, name: "Node.js" },
@@ -185,8 +185,8 @@ export const projects = [
     description:
       "A sleek e-commerce platform for mobile accessories featuring cases, chargers, earbuds and more with fast checkout.",
     href: "",
-    image: "/my-portfolio/assets/projects/mobile-accessories-store.jpg",
-    bgImage: "/my-portfolio/assets/backgrounds/blanket.jpg",
+    image: "assets/projects/mobile-accessories-store.jpg",
+    bgImage: "assets/backgrounds/blanket.jpg",
     techstack: [
       { id: 1, name: "React" },
       { id: 2, name: "Express.js" },
